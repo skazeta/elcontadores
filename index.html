@@ -57,22 +57,47 @@
 
 </body>
 </html>
-    <title>Página con Fondo de Imagen</title>
+<title>Contador con Fondo de Imagen</title>
     <style>
         body {
             /* URL de la imagen de fondo */
-            background-image: url(descarga (2).jpg);
+            background-image: url(descarga (2).jpg/fondo.png); /* Cambia 'fondo.png' por el nombre de tu imagen */
             background-size: cover; /* Ajusta el tamaño para cubrir toda la pantalla */
             background-repeat: no-repeat; /* Evita que la imagen se repita */
             background-position: center center; /* Centra la imagen */
             height: 100vh; /* Asegura que el fondo cubra la pantalla completa */
             margin: 0;
             font-family: Arial, sans-serif;
+            color: white; /* Cambia el color del texto para que sea visible sobre el fondo */
+            display: flex; /* Para centrar el contenido */
+            flex-direction: column; /* Coloca los elementos en columna */
+            align-items: center; /* Alinea horizontalmente en el centro */
+            justify-content: center; /* Alinea verticalmente en el centro */
+        }
+
+        button {
+            padding: 10px 20px; /* Añade padding al botón */
+            font-size: 16px; /* Tamaño de la fuente del botón */
+            cursor: pointer; /* Cambia el cursor al pasar por encima */
+        }
+
+        #contador {
+            font-size: 48px; /* Tamaño de la fuente del contador */
+            margin: 20px; /* Espacio alrededor del contador */
         }
     </style>
 </head>
 <body>
-    <h1>Bienvenido a mi página</h1>
-    <p>Este es un ejemplo con fondo de imagen PNG.</p>
+    <h1>Contador de clics</h1>
+    <div id="contador">0</div> <!-- Contador -->
+    <button onclick="incrementarContador()">Hacer clic</button> <!-- Botón -->
+
+    <script>
+        let contador = 0; // Variable para almacenar el contador
+
+        function incrementarContador() {
+            contador++; // Incrementa el contador
+            document.getElementById('contador').innerText = contador; // Actualiza el texto del contador
+        }
+    </script>
 </body>
-</html>
