@@ -1,2 +1,2 @@
-# elcontadores
-contador simple que no se puede revertir
+# pelota
+un pelota roja siendo lanzada a 45 grados.

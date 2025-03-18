@@ -1,0 +1,40 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import matplotlib.animation as animation
+
+# Parámetros de la simulación
+g = 9.81  # Gravedad (m/s^2)
+v0 = 10  # Velocidad inicial (m/s)
+theta = np.radians(45)  # Ángulo de lanzamiento (45°)
+t_max = (2 * v0 * np.sin(theta)) / g  # Tiempo total de vuelo
+t = np.linspace(0, t_max, num=100)  # Más frames para fluidez
+
+# Cálculo de la trayectoria
+x = v0 * np.cos(theta) * t
+y = v0 * np.sin(theta) * t - 0.5 * g * t**2
+
+# Crear la figura y el eje
+fig, ax = plt.subplots(figsize=(6,4))
+ax.set_xlim(0, max(x) + 1)
+ax.set_ylim(0, max(y) + 1)
+ax.set_xlabel("Distancia (m)")
+ax.set_ylabel("Altura (m)")
+ax.set_title("Tiro Parabólico en Bucle")
+
+# Dibujar la trayectoria como referencia
+ax.plot(x, y, linestyle="dashed", color="gray")
+
+# Crear el punto que se moverá
+ball, = ax.plot([], [], 'ro', markersize=8)
+
+# Función de actualización de la animación
+def update(frame):
+    ball.set_data(x[frame], y[frame])
+        return ball,
+
+        # Crear la animación en bucle infinito
+        ani = animation.FuncAnimation(fig, update, frames=len(t), interval=50, blit=True, repeat=True)
+
+        # Mostrar la animación
+        plt.show()
+        
